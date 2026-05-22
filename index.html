@@ -1,0 +1,1808 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>쌩존 시즌1 · 자가 진단서</title>
+<meta name="description" content="쌩존 시즌1 사전 미션 자가 진단서" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+
+<style>
+  :root {
+    --bg:           #FAFAFA;
+    --surface:      #FFFFFF;
+    --surface-2:    #F4F4F5;
+    --surface-3:    #EAEAEB;
+    --text:         #0A0A0A;
+    --text-2:       #52525B;
+    --text-3:       #A1A1AA;
+    --text-4:       #D4D4D8;
+    --border:       rgba(0, 0, 0, 0.06);
+    --border-2:     rgba(0, 0, 0, 0.10);
+    --border-3:     rgba(0, 0, 0, 0.16);
+    --accent:       #0A0A0A;
+    --accent-fg:    #FAFAFA;
+    --focus:        #2563EB;
+    --danger:       #DC2626;
+
+    --shadow-xs:    0 1px 2px rgba(0,0,0,.04);
+    --shadow-sm:    0 1px 3px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.03);
+    --shadow-md:    0 4px 16px -2px rgba(0,0,0,.06), 0 2px 6px -1px rgba(0,0,0,.04);
+    --shadow-lg:    0 24px 64px -16px rgba(0,0,0,.16), 0 8px 24px -8px rgba(0,0,0,.08);
+
+    --r-xs: 6px;
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 16px;
+    --r-xl: 20px;
+
+    --font:    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+    --font-num: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --t-fast: 120ms cubic-bezier(.4,0,.2,1);
+    --t-base: 180ms cubic-bezier(.4,0,.2,1);
+    --t-slow: 280ms cubic-bezier(.4,0,.2,1);
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.55;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--text); }
+  ::selection { background: var(--text); color: var(--bg); }
+
+  button { font-family: inherit; }
+
+  /* ──────────────────────────────────────────────────────────
+     TOP BAR
+     ────────────────────────────────────────────────────────── */
+  .topbar {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(250, 250, 250, 0.82);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+  }
+  .brand-mark {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px;
+    letter-spacing: -0.02em;
+  }
+  .brand-text {
+    display: flex; flex-direction: column; gap: 1px;
+    line-height: 1.1;
+  }
+  .brand-title {
+    font-weight: 700; font-size: 14px; letter-spacing: -0.015em;
+    color: var(--text);
+  }
+  .brand-sub {
+    font-weight: 400; font-size: 11.5px;
+    color: var(--text-3);
+    letter-spacing: -0.005em;
+  }
+
+  .topbar-meta {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px; color: var(--text-3);
+  }
+  .live-dot {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11.5px; color: var(--text-2); font-weight: 500;
+  }
+  .live-dot::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: #22C55E;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     HERO
+     ────────────────────────────────────────────────────────── */
+  .hero {
+    max-width: 1200px; margin: 0 auto;
+    padding: 56px 24px 32px;
+  }
+  .hero-title {
+    margin: 0 0 12px;
+    font-size: clamp(32px, 4.4vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    color: var(--text);
+  }
+  .hero-sub {
+    margin: 0;
+    font-size: clamp(15px, 1.6vw, 17px);
+    color: var(--text-2);
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    max-width: 56ch;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     STATS
+     ────────────────────────────────────────────────────────── */
+  .stats {
+    max-width: 1200px; margin: 0 auto;
+    padding: 8px 24px 24px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    display: flex; flex-direction: column; gap: 4px;
+    transition: border-color var(--t-base);
+  }
+  .stat:hover { border-color: var(--border-2); }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-3);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  .stat-value {
+    font-family: var(--font-num);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .stat-value .unit {
+    font-size: 13px; font-weight: 500;
+    color: var(--text-3);
+    margin-left: 3px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     TOOLBAR
+     ────────────────────────────────────────────────────────── */
+  .toolbar {
+    max-width: 1200px; margin: 0 auto;
+    padding: 8px 24px 0;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto auto auto;
+    gap: 8px;
+    align-items: center;
+  }
+  .field-wrap {
+    position: relative; display: block;
+  }
+  .input {
+    width: 100%;
+    appearance: none; -webkit-appearance: none;
+    background: var(--surface);
+    border: 1px solid var(--border-2);
+    border-radius: var(--r-sm);
+    padding: 10px 14px 10px 38px;
+    font: 400 14px/1.4 var(--font);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    outline: none;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+  }
+  .input::placeholder { color: var(--text-3); }
+  .input:focus {
+    border-color: var(--text);
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+  }
+  .input-icon {
+    position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px;
+    color: var(--text-3);
+    pointer-events: none;
+  }
+  .input-kbd {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    font-size: 11px; font-weight: 500;
+    color: var(--text-3);
+    background: var(--surface-2);
+    border: 1px solid var(--border-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .seg {
+    display: inline-flex;
+    background: var(--surface-2);
+    border-radius: var(--r-sm);
+    padding: 3px;
+    gap: 2px;
+  }
+  .seg button {
+    appearance: none; background: transparent; border: 0;
+    padding: 7px 12px;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--text-2);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+    white-space: nowrap;
+  }
+  .seg button:hover { color: var(--text); }
+  .seg button[aria-pressed="true"] {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.04);
+    font-weight: 600;
+  }
+
+  .select {
+    appearance: none; -webkit-appearance: none;
+    background: var(--surface) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'><path d='M3 4.5l3 3 3-3' fill='none' stroke='%2352525B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 12px center;
+    background-size: 10px;
+    border: 1px solid var(--border-2);
+    padding: 9px 30px 9px 12px;
+    font: 500 13px/1.4 var(--font);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    cursor: pointer;
+    border-radius: var(--r-sm);
+    transition: border-color var(--t-fast);
+  }
+  .select:hover { border-color: var(--border-3); }
+
+  .btn {
+    appearance: none;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border-2);
+    padding: 9px 14px;
+    border-radius: var(--r-sm);
+    font: 500 13px/1.4 var(--font);
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 7px;
+    transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+  }
+  .btn:hover {
+    background: var(--surface-2);
+    border-color: var(--border-3);
+  }
+  .btn.primary {
+    background: var(--accent);
+    color: var(--accent-fg);
+    border-color: var(--accent);
+  }
+  .btn.primary:hover { background: #2A2A2A; }
+  .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* ──────────────────────────────────────────────────────────
+     GRID
+     ────────────────────────────────────────────────────────── */
+  main {
+    max-width: 1200px; margin: 0 auto;
+    padding: 28px 24px 96px;
+  }
+
+  .result-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 13px; color: var(--text-3);
+    font-weight: 500;
+  }
+  .result-bar .count { color: var(--text-2); }
+  .result-bar .count strong { color: var(--text); font-weight: 600; }
+  .hint kbd {
+    font-family: var(--font); font-size: 11px;
+    background: var(--surface-2);
+    border: 1px solid var(--border-2);
+    padding: 1px 6px; border-radius: 4px;
+    color: var(--text-2);
+    font-weight: 500;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .card {
+    appearance: none;
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 22px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+    transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+    display: flex; flex-direction: column;
+    min-height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--border);
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-2);
+  }
+  .card:focus-visible {
+    outline: none;
+    border-color: var(--text);
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+  }
+  .card:active { transform: translateY(0); }
+
+  .card-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-num {
+    font-size: 11.5px;
+    color: var(--text-3);
+    font-weight: 500;
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11.5px; font-weight: 500;
+    padding: 3px 8px 3px 7px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text-2);
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+  }
+  .badge .dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--text-3);
+  }
+  .badge.s-content {
+    background: #ECFDF5;
+    color: #047857;
+  }
+  .badge.s-content .dot { background: #10B981; }
+  .badge.s-personal {
+    background: #EFF6FF;
+    color: #1D4ED8;
+  }
+  .badge.s-personal .dot { background: #3B82F6; }
+  .badge.s-none {
+    background: var(--surface-2);
+    color: var(--text-3);
+  }
+
+  .card-name {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+    line-height: 1.15;
+    color: var(--text);
+  }
+  .card-one {
+    font-size: 14px;
+    color: var(--text-2);
+    margin: 0 0 16px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    letter-spacing: -0.008em;
+  }
+  .card-one.empty {
+    color: var(--text-3);
+    font-style: normal;
+  }
+
+  .card-foot {
+    margin-top: auto;
+    display: flex; align-items: end; justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .meta-foll {
+    display: flex; align-items: baseline; gap: 5px;
+  }
+  .meta-foll .num {
+    font-family: var(--font-num);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .meta-foll .lbl {
+    font-size: 11.5px;
+    color: var(--text-3);
+    font-weight: 500;
+  }
+  .meta-mini {
+    text-align: right;
+    font-size: 11.5px;
+    color: var(--text-3);
+    line-height: 1.4;
+  }
+  .meta-mini strong {
+    color: var(--text-2);
+    font-weight: 500;
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-3);
+    font-size: 14px;
+  }
+  .empty-state .icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-3);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     MODAL (sheet)
+     ────────────────────────────────────────────────────────── */
+  .scrim {
+    position: fixed; inset: 0;
+    background: rgba(10, 10, 10, 0.32);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-slow);
+  }
+  .scrim.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sheet {
+    position: fixed; inset: 0;
+    z-index: 101;
+    display: flex; align-items: flex-start; justify-content: center;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 48px 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-slow);
+  }
+  .sheet.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sheet-inner {
+    background: var(--surface);
+    width: 100%;
+    max-width: 760px;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(12px) scale(0.99);
+    transition: transform var(--t-slow);
+    overflow: hidden;
+  }
+  .sheet.open .sheet-inner {
+    transform: translateY(0) scale(1);
+  }
+
+  .sheet-head {
+    padding: 36px 40px 28px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .sheet-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    appearance: none; background: var(--surface-2); border: 0;
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--text-2);
+    transition: background var(--t-fast), color var(--t-fast);
+  }
+  .sheet-close:hover { background: var(--surface-3); color: var(--text); }
+  .sheet-close svg { width: 16px; height: 16px; }
+
+  .sheet-meta {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-size: 12px; color: var(--text-3);
+    margin-bottom: 14px;
+  }
+  .sheet-meta .sep { color: var(--text-4); }
+  .sheet-name {
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin: 0 0 10px;
+    color: var(--text);
+  }
+  .sheet-one {
+    font-size: clamp(15px, 1.8vw, 17px);
+    color: var(--text-2);
+    line-height: 1.5;
+    margin: 0;
+    letter-spacing: -0.012em;
+    max-width: 56ch;
+  }
+  .sheet-one.empty { color: var(--text-3); }
+  .sheet-one-reason {
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--text-3);
+    line-height: 1.5;
+    letter-spacing: -0.008em;
+    padding-left: 12px;
+    border-left: 2px solid var(--border-3);
+  }
+  .sheet-one-reason em {
+    font-style: normal; font-weight: 500; color: var(--text-2);
+  }
+
+  .sheet-body {
+    padding: 8px 40px 40px;
+  }
+
+  .sec {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .sec:last-child { border-bottom: 0; padding-bottom: 12px; }
+
+  .sec-title {
+    font-size: 11.5px;
+    color: var(--text-3);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+
+  .kv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px 28px;
+  }
+  .kv { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .kv-k {
+    font-size: 12px;
+    color: var(--text-3);
+    font-weight: 500;
+  }
+  .kv-v {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+    letter-spacing: -0.008em;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .kv-v.empty { color: var(--text-3); font-weight: 400; }
+  .kv-v a { color: var(--text); text-decoration: underline; text-decoration-color: var(--border-3); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .kv-v a:hover { text-decoration-color: var(--text); }
+  .kv-v .big {
+    font-family: var(--font-num);
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.025em;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    line-height: 1.1;
+  }
+  .kv-v .big-sub {
+    font-size: 12px; color: var(--text-3); font-weight: 500;
+    margin-left: 4px;
+  }
+
+  .panel {
+    background: var(--surface-2);
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+  }
+  .panel-k {
+    font-size: 12px;
+    color: var(--text-3);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .panel-v {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    letter-spacing: -0.008em;
+  }
+  .panel-v.empty { color: var(--text-3); font-style: normal; }
+  .panel-v a { color: var(--text); text-decoration: underline; text-decoration-color: var(--border-3); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .panel-v a:hover { text-decoration-color: var(--text); }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .twocol + .twocol { margin-top: 12px; }
+
+  .role-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .role {
+    background: var(--surface-2);
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .role-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text-2);
+    font-size: 11.5px; font-weight: 600;
+    letter-spacing: -0.005em;
+    font-variant-numeric: tabular-nums;
+  }
+  .role-body {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    letter-spacing: -0.008em;
+  }
+  .role-body.empty { color: var(--text-3); }
+  .role-body a { color: var(--text); text-decoration: underline; text-decoration-color: var(--border-3); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .goal-box {
+    background: var(--surface-2);
+    border-radius: var(--r-md);
+    padding: 22px 24px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--text);
+    white-space: pre-wrap;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+  .goal-box.empty {
+    color: var(--text-3); font-weight: 400; font-size: 14px;
+  }
+
+  .pledge {
+    background: var(--surface-2);
+    border-radius: var(--r-md);
+    padding: 20px 22px;
+  }
+  .pledge-list {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .pledge-item {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+    letter-spacing: -0.008em;
+  }
+  .pledge-check {
+    width: 18px; height: 18px;
+    border-radius: 5px;
+    background: var(--text);
+    color: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .pledge-check svg { width: 11px; height: 11px; stroke-width: 2.4; }
+  .pledge-sign {
+    margin-top: 18px; padding-top: 16px;
+    border-top: 1px solid var(--border-2);
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 14px;
+  }
+  .pledge-sign-l {
+    font-size: 12px; color: var(--text-3); font-weight: 500;
+  }
+  .pledge-sign-r {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.012em;
+  }
+  .pledge-sign-r.empty { color: var(--text-3); font-weight: 400; font-size: 13px; }
+
+  /* ──────────────────────────────────────────────────────────
+     RESPONSIVE
+     ────────────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stats > :nth-child(5) { grid-column: 1 / -1; }
+    .toolbar { grid-template-columns: 1fr; gap: 8px; }
+    .hero { padding: 40px 20px 24px; }
+    main { padding: 24px 20px 80px; }
+    .toolbar, .stats { padding-left: 20px; padding-right: 20px; }
+    .topbar-inner { padding: 12px 20px; }
+  }
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stats > :nth-child(5) { grid-column: 1 / -1; }
+    .sheet { padding: 16px 8px; }
+    .sheet-head { padding: 28px 22px 22px; }
+    .sheet-body { padding: 0 22px 28px; }
+    .twocol { grid-template-columns: 1fr; }
+    .role-block { grid-template-columns: 1fr; }
+    .kv-grid { grid-template-columns: 1fr 1fr; }
+    .grid { grid-template-columns: 1fr; gap: 10px; }
+    .topbar-meta { display: none; }
+    .seg button { padding: 7px 10px; font-size: 12px; }
+  }
+  @media (max-width: 420px) {
+    .kv-grid { grid-template-columns: 1fr; }
+    .stat-value { font-size: 22px; }
+  }
+
+  body.modal-open { overflow: hidden; }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">쌩</div>
+      <div class="brand-text">
+        <div class="brand-title">쌩존 시즌 1</div>
+        <div class="brand-sub">사전 미션 · 자가 진단서</div>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <span class="live-dot"><span id="m-count">—</span>명 제출</span>
+      <span style="color: var(--text-4)">·</span>
+      <span>업데이트 <span id="m-updated">—</span></span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 class="hero-title">크리에이터 18인의 6주 출발선</h1>
+  <p class="hero-sub">각자의 현재 위치, 강점과 약점, 6주 후의 도착지까지. 모임 동안 언제든 다시 펼쳐볼 수 있어요.</p>
+</section>
+
+<section class="stats" aria-label="요약">
+  <div class="stat">
+    <div class="stat-label">전체 참가자</div>
+    <div class="stat-value"><span id="s-total">0</span><span class="unit">명</span></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">콘텐츠 채널 운영</div>
+    <div class="stat-value"><span id="s-content">0</span><span class="unit">명</span></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">개인용만 운영</div>
+    <div class="stat-value"><span id="s-personal">0</span><span class="unit">명</span></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">계정 없음</div>
+    <div class="stat-value"><span id="s-none">0</span><span class="unit">명</span></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">합산 팔로워</div>
+    <div class="stat-value"><span id="s-foll">0</span></div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="field-wrap">
+    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="search" class="input" type="search" placeholder="이름, 한 줄 소개, 키워드로 검색" aria-label="검색" />
+    <span class="input-kbd">/</span>
+  </div>
+
+  <div class="seg" role="group" aria-label="채널 상태 필터">
+    <button data-filter="all"      aria-pressed="true">전체</button>
+    <button data-filter="content"  aria-pressed="false">콘텐츠</button>
+    <button data-filter="personal" aria-pressed="false">개인용</button>
+    <button data-filter="none"     aria-pressed="false">없음</button>
+  </div>
+
+  <select class="select" id="sort" aria-label="정렬">
+    <option value="submit_asc">제출 순서</option>
+    <option value="submit_desc">최신 제출 순</option>
+    <option value="name_asc">이름순</option>
+    <option value="follower_desc">팔로워 많은 순</option>
+    <option value="follower_asc">팔로워 적은 순</option>
+  </select>
+
+  <button class="btn" id="reload" title="새 CSV로 업데이트">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>
+    CSV
+  </button>
+  <input type="file" id="csvinput" accept=".csv,text/csv" class="visually-hidden" />
+</div>
+
+<main>
+  <div class="result-bar">
+    <div class="count"><strong id="r-count">0</strong>명 표시 중</div>
+    <div class="hint"><kbd>/</kbd> 검색 · <kbd>Esc</kbd> 닫기</div>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-name"></div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   DATA
+   새 응답을 반영하려면 우측 상단 [CSV] 버튼을 눌러
+   동일 양식의 새 CSV 파일을 업로드하세요.
+   ════════════════════════════════════════════════════════════════ */
+const DATA = [
+  {
+    "timestamp": "2026/05/19 6:00:42 오후 GMT+9",
+    "name": "소학행커플",
+    "channel_status": "콘텐츠 용으로 따로 운영하는 채널 있음",
+    "duration": "1년 5개월",
+    "upload_freq": "1주 2회",
+    "url": "https://www.instagram.com/ssohak_couple/",
+    "one_line": "커플에서 부부가 되는 케미좋은 부부",
+    "one_line_reason": "그런 내용을 좋아해주시고 많이 담고있어서 ",
+    "follower": "7905",
+    "best_content": "https://www.instagram.com/reel/DPggzrAjd_b/?igsh=dHF6amFldGRvMThm / 축의금이 타인이 궁금할꺼고 유머러스하게 웃겨서 ",
+    "abandoned": "",
+    "strengths": "둘다 얼굴을 보일수있다 / 팔로워에비해 조회수가 좋은게 꽤 있다 / 재밌다",
+    "weaknesses": "둘이 만나야 찍을수있다 / 간단하게찍을수있는건 안터진다 (밈) / 롱폰전환이 없다 / ",
+    "worry": "요즘 좋히수가 약하다 / 컨셉이 약하다? / 팔로워 모으",
+    "upload_barrier": "둘이 만나서 토크를 하다가 얻어걸리는것들을 찾기가 폼이 오래들고 안나오기도한다",
+    "interviewee": "1. 일상을 재밌게 사는 사람(들). 끼가 많은 사람(들)\n2. 굳이 꼽자면 자기만의 특색있는 콘텐츠. 컨셉 ",
+    "role_model_1": "얼미부부 + 부부 + 대중성 , 커머스 확장, ",
+    "role_model_2": "해리포터 + 부부 + 나도 정주행할만큼 웃겼고 팬심생김 , 커머스로도 확장가능 ",
+    "goal": "팬이 생기고 평균 조회수 높이기! ",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "이소유"
+  },
+  {
+    "timestamp": "2026/05/20 5:50:58 오후 GMT+9",
+    "name": "김미미",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "2주 1-2회",
+    "url": "http://www.instagram.com/beautiful_mime93",
+    "one_line": "일상 떠들기",
+    "one_line_reason": "피드보다 TMI 스토리를 더 많이 올린다",
+    "follower": "2,513명",
+    "best_content": "https://www.instagram.com/p/DDI88Jdy5Uc/?igsh=bzdmYWw0ZDdxMnRj\n\n변우석 팬들이 와서 좋아여 눌러줌!\n변우석 파워핑!",
+    "abandoned": "",
+    "strengths": "일상\n러닝\n강아지",
+    "weaknesses": "우후죽순\n정말 일상\n안봐도 그만",
+    "worry": "나만의 컨텐츠를 찾고 싶다",
+    "upload_barrier": "올릴 게시글이 마땅치 않다",
+    "interviewee": "나 자신을 그대로 보여주는 느낌(명예 영국인, 퀸가비)\n사람들과 대화를 하거나 만날때 느껴지는 시너지나 대화 흐름들이 재밌다고 한다. \n그래서 일상을 재밌게 담아보면 좋을 것 같다는 의견을 받았다.\n(마치 리포터 처럼, 티키타카 느낌)",
+    "role_model_1": "Luseeyalu\nhttps://www.instagram.com/luseeyalu?igsh=ZnN2M3BibTg2azhz\n- 카테고리\n중국계 미국인\n틱톡 힙한 패러디\n-- 닮고 싶은 이유 (한 줄)\n평소에 따라 해보고 싶던 릴스 만드는 과정도 웃기게 잘 담는데 릴스의 현실을 잘 보여줌",
+    "role_model_2": "수박온니\nhttps://www.instagram.com/ssbangunni?igsh=ZWZ2aGw0MmhyNjds\n- 카테고리\n다양한 패션 & 러닝 아이템 리뷰\n- 닮고 싶은 이유 (한 줄)\n자유롭게 입어보고 달려보고 표현하는게 좋다.\n심지어 추후에 콜라보 진행까지!",
+    "goal": "조회수 1만 이상 & 다양한 광고 협업 & 활발한 댓글 소통",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "김미미"
+  },
+  {
+    "timestamp": "2026/05/20 7:27:52 오후 GMT+9",
+    "name": "남수현",
+    "channel_status": "콘텐츠 용으로 따로 운영하는 채널 있음",
+    "duration": "기억이안나요",
+    "upload_freq": "그때그때달라요",
+    "url": "https://www.instagram.com/1onlystyle?igsh=MWd3eGNna3AzNXJ3bw==",
+    "one_line": "얼굴변화를 만들어주는",
+    "one_line_reason": "“얼굴이 다시 돌아오는 이유를 구조로 연구하는 사람.”",
+    "follower": "6995",
+    "best_content": "https://www.instagram.com/reel/CsRHQu5M0xb/?igsh=YnN6MXVpZnRkaTB0\n샤넬모양케익크라서? 배경음악?",
+    "abandoned": "생각안남",
+    "strengths": "1. “얼굴 = 결과 / 몸 = 원인”이라는 차별화된 관점\n단순 피부·윤곽 이야기가 아니라\n몸의 구조, 순환, 호흡, 사용 패턴까지 연결해서 설명하기 때문에\n사람들이 “아 그래서 다시 돌아왔구나” 하고 납득하게 만듭니다.\n\n\n2. 경험 기반이라 말에 현실감이 있음\n22년 현장 경험 + 실제 케어 사례들이 쌓여 있어서\n이론만 말하는 계정보다 훨씬 신뢰감이 있습니다.\n“연구하는 사람” 느낌과 “실제로 케어하는 사람” 느낌이 같이 살아있어요.\n\n\n3. 세계관이 명확함\n검은 무드, 해부학적 이미지, 얼굴몸반사학, 구조설계 같은 요소들이 반복되면서\n계정 자체가 하나의 브랜드처럼 기억됩니다.\n그냥 뷰티계정이 아니라\n“얼굴이 왜 변하는지 연구하는 채널”로 포지셔닝이 되어 있는 게 강점입니다.\n\n\n",
+    "weaknesses": "1. 얼굴 = 결과 / 몸 = 원인이라는 차별화된 관점\n\n2. 22년 현장 경험 기반의 현실적인 구조 분석\n\n3. 얼굴구조설계·얼굴몸반사학 중심의 강한 브랜드 세계관\n\n4. 처음 보는 사람에게는 다소 어렵게 느껴질 수 있음\n\n5. 변화 사례·비포애프터 콘텐츠 비중이 더 필요함\n\n6. 처음 방문한 사람이 시작 흐름을 이해하기 어려울 수 있음",
+    "worry": "인스타를 캐러셀 중심으로 운영해서\n유튜브 롱폼으로 유입시키는 흐름도 충분히 가능하다고 생각합니다.\n\n특히 제 채널은\n“설명형 콘텐츠 + 구조 이해형 콘텐츠” 성향이 강해서\n짧은 릴스보다 캐러셀이 오히려 세계관 전달에는 더 잘 맞는 부분도 있는 것 같습니다.\n\n요즘 인스타도 캐러셀 저장·체류시간·넘김률 기반으로 노출이 꽤 나오는 느낌이라\n단순 바이럴보다 “생각하게 만드는 콘텐츠”에는 캐러셀이 강점이 있는 것 같습니다.\n\n다만 중요한 건\n캐러셀 자체가 끝이 아니라\n“다음 행동”까지 이어지게 만드는 흐름 설계인 것 같습니다.\n\n예를 들면\n\n1장\n강한 문제 제기\n“왜 얼굴은 다시 돌아올까?”\n\n2~5장\n원인 구조 설명\n(순환·호흡·사용패턴·긴장 등)\n\n마지막 장\n“이 내용을 실제 사례와 함께 더 자세히 설명했습니다”\n→ 유튜브 이동 유도\n\n이런 흐름처럼\n인스타에서는 “납득”을 만들고\n유튜브에서는 “몰입과 신뢰”를 만드는 구조로 가면 좋을 것 같습니다.",
+    "upload_barrier": "제가 콘텐츠를 자주 올리지 못하는 이유 중 하나는\n단순히 게을러서가 아니라,\n콘텐츠의 목적과 흐름이 아직 명확하게 정리되지 않았기 때문인 것 같습니다.\n\n지금은 그냥 많이 올리는 것보다\n“어떤 사람을 모으고 싶은지”,\n“어떤 흐름으로 유튜브·상담·브랜드까지 연결할지”를 먼저 전략적으로 설계하는 과정이 더 중요하다고 느끼고 있습니다.\n\n특히 제 콘텐츠는\n단순 정보형 계정보다는\n세계관과 구조를 이해시키는 방향에 가깝기 때문에,\n\n- 어떤 콘텐츠를 올려야 하는지\n- 무엇을 남기고 무엇을 줄일지\n- 인스타와 유튜브 역할을 어떻게 나눌지\n- 조회수보다 어떤 사람을 모을지\n\n이 부분들을 먼저 정리해야\n오히려 오래 갈 수 있는 채널이 될 것 같다는 고민이 있습니다.",
+    "interviewee": "[채널 운영 중]\n\n1. 한줄로 설명하면 뭐 하는 사람 같아?\n   → “얼굴이 왜 다시 돌아오는지 몸의 구조로 연구하는 사람 같아.”\n\n2. 솔직히 내 계정에 뭐가 부족해 보여?\n   → 좋은 내용은 많은데 처음 보는 사람은 조금 어렵게 느낄 수도 있을 것 같아.\n   “그래서 정확히 어떤 변화를 도와주는 사람인지” 더 직관적으로 보이면 좋을 것 같아.\n\n[채널 미운영]\n\n1. “내가 SNS에서 뭘 하면 가장 어울릴 것 같아?”\n   → 단순 뷰티보다는 사람 몸과 얼굴의 연결을 쉽게 풀어주는 콘텐츠가 가장 어울릴 것 같아.\n   설명할 때 몰입감이 있어서 이야기형 콘텐츠랑 라이브도 잘 맞는 느낌.\n\n2. 내 인간 ○○○으로써 매력은 뭐라고 생각해?\n   → 경험에서 나오는 진정성이 큰 매력인 것 같아.\n   단순히 꾸미는 느낌보다 “왜 이런 변화가 생기는지”를 진짜 오래 고민해온 사람처럼 느껴져.",
+    "role_model_1": "https://www.instagram.com/jules_horn?igsh=MThseDJuaWI5dXZ4cA==\n\n편안하게 하는모습이인상적이며 사람들의 문제해결에 도움을 주는것",
+    "role_model_2": "https://www.instagram.com/p/DYjPEaJCRJ8/?igsh=cmZocjlmdDFhMmYw\n방법론을 알려주어서\n\nhttps://www.instagram.com/p/DYjMI5CEvFV/?igsh=MWozdmJkanZuYnlmNQ==\n전체적인 무드랑 분위기가 마음에듬\n",
+    "goal": "인스타그램 프로젝트를 실행하는 6주 동안의 목표는\n단순히 팔로워를 늘리는 것이 아니라,\n\n“얼굴은 결과이고 몸은 원인이다”라는 제 세계관에 공감하는 사람들을 모으고\n브랜드 방향성을 명확하게 만드는 것입니다.\n\n특히 이번 6주 동안은\n\n- 내 콘텐츠 방향성 찾기\n- 캐러셀/릴스/라이브 중 어떤 포맷이 가장 잘 맞는지 확인하기\n- 인스타 → 유튜브 → 상담으로 이어지는 흐름 만들기\n- 얼굴몸반사학/FSMB 개념을 대중이 이해하기 쉽게 정리하기\n- 단순 조회수보다 ‘오래 남을 사람’을 모으는 브랜딩 구축\n- 꾸준히 콘텐츠를 올릴 수 있는 운영 시스템 만들기\n\n를 목표로 하고 있습니다.\n\n궁극적으로는\n“얼굴이 다시 돌아오는 이유를 구조적으로 설명하는 사람”으로\n명확하게 기억되는 채널을 만드는 것이 목표입니다.",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "남수현"
+  },
+  {
+    "timestamp": "2026/05/20 8:57:06 오후 GMT+9",
+    "name": "이슬",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "0",
+    "url": "https://www.instagram.com/dew._.ii?igsh=MXU1Mm5uOG5meXdraA%3D%3D&utm_source=qr",
+    "one_line": "쇼호스트계정",
+    "one_line_reason": "나를 보여주기보단 일적인용으로만 사용함",
+    "follower": "1573",
+    "best_content": "",
+    "abandoned": "유튜브 롱폼 추천영상",
+    "strengths": "나 자신의 비주얼, 언변, 소재에대한 관심도",
+    "weaknesses": "내 컨텐츠에대한 관심도 적은 팔로우, 팔로워 적음, 방향성이 뚜렷하지않음",
+    "worry": "편집시간과 방향성이 어려움",
+    "upload_barrier": "편집",
+    "interviewee": "채널 미운영\n1. 디저트나 명품등 트렌드, 관심사의 추천\n2. 관심있는것들의 정보가 디테일하며 똑뿌러짐",
+    "role_model_1": "없음",
+    "role_model_2": "없음",
+    "goal": "어설픔과 부족함을 두려워하지않고 핑계대지 않고 해내는 나 자신을 만나고싶습니다",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "이슬"
+  },
+  {
+    "timestamp": "2026/05/20 11:12:41 오후 GMT+9",
+    "name": "서혜림",
+    "channel_status": "콘텐츠 용으로 따로 운영하는 채널 있음",
+    "duration": "36개월",
+    "upload_freq": "1주 1회",
+    "url": "https://www.instagram.com/hailey_world__?igsh=MWhiMzBvajdpOTRmYQ%3D%3D&utm_source=qr",
+    "one_line": "육아하는 워킹맘",
+    "one_line_reason": "일하면서 육아 컨텐츠 올리기때문에",
+    "follower": "1.6만",
+    "best_content": "모유컨텐츠/ 공감분야가 확실해서",
+    "abandoned": "육아꿀템",
+    "strengths": "육아, 쇼호스트, 뷰티",
+    "weaknesses": "메인컨텐츠 없음, 명확하지않음, 업로드가 느림",
+    "worry": "육아 인플루언서가 되고싶어요…/ 관리잘하는 엄마",
+    "upload_barrier": "자극제가 부족한것같아요 피곤하다는 핑계로 못올립니다",
+    "interviewee": "육아도 하면서 일도하는 모습이 멋져보인다/ 뭐하는 사람인지가 뚜렷히 보이지 않는다",
+    "role_model_1": "https://www.instagram.com/pig__su?igsh=dnZqcmI4d2prcXRo / 육아/ 소통을 잘하고 친근해요",
+    "role_model_2": "https://www.instagram.com/kangduckku?igsh=MWVkc3d0Z3FiZXN1NQ==/ 정보가 많고 재밌어요",
+    "goal": "팔로워들과 소통을 많이 하고싶고, 2만 팔로워 달성하고싶어요!",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "서혜림"
+  },
+  {
+    "timestamp": "2026/05/21 2:12:47 오전 GMT+9",
+    "name": "허진영",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "0",
+    "url": "https://www.instagram.com/_break._.time_?igsh=MXYyeXF1eGZ0eDl4Mg%3D%3D&utm_source=qr",
+    "one_line": "도화지 같아요..",
+    "one_line_reason": "아무것도 없기에 이번 계기로 제대로 시작해보겠습니다!",
+    "follower": "412",
+    "best_content": "",
+    "abandoned": "",
+    "strengths": "•\t솔직하고 자연스러운 분위기\n•\t앞으로 성장할 여지가 큰 점\n•\t꾸준히 만들어갈 의지가 있는 점",
+    "weaknesses": "•\t아직 콘텐츠가 많지 않은 점\n•\t방향성이 완전히 정리되지 않은 점\n•\t노출과 홍보가 부족한 점",
+    "worry": "아직 시작 단계라 뚜렷한 색깔과 콘텐츠 방향을 더 만들어가야 한다는 점입니다.",
+    "upload_barrier": "어떤 콘텐츠를 올려야 할지 확신이 없어서 망설이게 됩니다.\n완벽하게 만들고 싶어 자꾸 늦어집니다.",
+    "interviewee": "1. 솔직한 후기 콘텐츠 (패션, 여행, 뷰티)\n2. 꾸밈없는 매력",
+    "role_model_1": "https://www.instagram.com/minnu_travel?igsh=dTN4cHlrczduejBk\n\n민누님 /여행인플루언서/여행의 감성과 분위기를 자연스럽고 유쾌하며 솔직하게 담아내는 모습이 인상적이라 닮고 싶습니다.",
+    "role_model_2": "https://www.instagram.com/popo_curation?igsh=dmx4OTZ5MGhoNjVn\n\n포포 큐레이션/ 패션매거진/ 관심사에 맞는 정보를 한눈에 보기 좋게 정리해 준다는 점을 닮고 싶습니다.",
+    "goal": "이 채널을 보는 사람들이 실제로 사는 결정을 내리게 만드는 가치를 주는 것\n한번 조회가 아니라, 매주 혹은 매달 찾아보게 만드는 채널이 되는 것",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "허진영"
+  },
+  {
+    "timestamp": "2026/05/21 11:15:14 오전 GMT+9",
+    "name": "강선영",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "약 3년 5개월",
+    "upload_freq": "2주 2회",
+    "url": "https://www.instagram.com/ssun_showhost?igsh=MXVwNnc1bDE1dG1oaQ==",
+    "one_line": "쇼호스트 포트폴리오용",
+    "one_line_reason": "주로 방송 기록을 올리기 때문에",
+    "follower": "1044명",
+    "best_content": "잘된 콘텐츠가 없습니다.. ㅠㅠ 전부 기록용이라 알고리즘을 탄 경우가 없습니다",
+    "abandoned": "",
+    "strengths": "쇼호스트 섭외용으로 보기 편리함, 나의 직업 확인용, 나라는 사람의 방송 스타일을 보기 쉬움",
+    "weaknesses": "단순 포폴용이기때문에 요즘 흐름에 맞지 않음, 나를 단순 pd님들께 알리는 용도가 아닌 대중에게 알리는 콘텐츠의 부재, 단순 기록용이기에 진부하고 재미없음",
+    "worry": "이 채널이 아닌, 콘텐츠용의 다른 채널을 만들고자 하는 목표로 스터디에 신청하게 되었습니다!!",
+    "upload_barrier": "인스타로 섭외가 오는 경우가 점점 드물어지고 있기 때문에",
+    "interviewee": "(현재 포폴용 채널만 운영중이고 이번 스터디를 통해 새로운 컨텐츠용 채널을 만들고 싶어서 채널 미운영에 해당되는 질문들을 택했습니다!!)\n(그리고 가까운 친구들이 인원이 좀 있어서 총 7명 정도에게 물어봤습니다! 답변들 모아서 정리하겠습니다! )\n\n1. \"내가 SNS에서 뭘 하면 가장 어울릴 것 같아?\n\n개그, 고민상담, 유행하는 춤에 막춤 섞은 릴스, 극악의 밸런스 게임 출제자, 리액션, 상황극, 화장품이나 레저, 인간관계나 연애 등 겪은 썰풀기, 여행\n\n2. 내 인간 ㅇㅇㅇ으로써 매력은 뭐라고 생각해?\n\n꾸며진 이미지 없이 주변사람을 웃게 하는것,\n지루한 상황이 찾아올 때마다 뜬금없는 행동이나 말을 해서 웃음을 만들어내는 재치가 있음, 사랑이 많고 표현을 잘함, 밝음 등등,\n눈썰미가 좋고 배려가 있음! 썰을 잘풀어서 재미짐,\n잘웃게하고 유치한 매력,\n선영이는 일단 존재감이 보통 사람들보다 강한것같아 자리에 있고 없고가 분위기가 되게 다른느낌?,\n분위기 메이커 / 언제나 밝은 분위기를 만들어서 사람들에게 웃음을 줌. / 공감능력이 풍부해서 주변 사람들에게 위로와 힘을 주는 사람,\n리액션 좋고 남 칭찬을 잘함, 꾸밈없고 에너지가 좋음,\n다른 사람들보다 텐션이 높고 반응이 굉장히 다양한 점. 통통 튀는 이미지인 점.\n",
+    "role_model_1": "찰스엔터 (https://youtube.com/@charlesenter?si=6xxstt0iQY9L8npH),\n리액션 및 소통,\n사람 자체가 좋은 사람이라 뿜어져 나오는 밝고 긍정적인 에너지가 저와 결이 비슷해서 끌리기도 하고, 유쾌하고 사교적인 성격이 비슷하다고 느껴집니다!",
+    "role_model_2": "가비 걸 (https://youtube.com/@gabeegirl?si=ldnGswtXsn1wCXEK) ,\n본인의 캐릭터성으로 상황극, 게스트 모셔서 토크쇼,\n평소 연기와 상황극 하는걸 좋아해서 저의 본캐를 더욱 살린 캐릭터를 만들어 가비처럼 아예 캐릭터화 하고 싶습니다 또한 사람 만나는걸 워낙 좋아하고 같이 대화하는걸 좋아해서 게스트 1대1로 만나 새로운 분야를 알아가며 같이 고민상담하는게 너무 제가 나중에 인기가 생기면 하고싶은 컨텐츠 결입니다.",
+    "goal": "제 캐릭터성이 확실히 생기고, 주 컨텐츠의 카테고리가 생겼으면 좋겠습니다.\n또한 기본적인 릴스와 요즘 유행하는 영상 편집 방식, 연출 방식들도 깨달아있으면 좋겠습니다.",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "강선영"
+  },
+  {
+    "timestamp": "2026/05/21 1:15:31 오후 GMT+9",
+    "name": "김근택(이안)",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "2주 1회",
+    "url": "https://www.instagram.com/ian__onair?igsh=NW9jaDc2cmNwN3h2&utm_source=qr",
+    "one_line": "메이크업하는 사람의 인스타그램",
+    "one_line_reason": "지금까지 해오던 업무만 보여져서",
+    "follower": "1667",
+    "best_content": "https://www.instagram.com/reel/DKJtsZZxqob/?igsh=MXdpemVqMzI4ajJzdA==\n\n현재 협업하는 브랜드와 관련된 영상\n- 촬영할 때에도 재밌게 진행했는데 그대로 즐거움이 묻어나온 것 같음.\n- 다수의 출연과 더불어 찐 직원들의 피셜이 있어서 더 다가오는 것 같음.\n- 촬영 구도가 여태까지 해보지 않았던 구도였음.",
+    "abandoned": "제품 리뷰영상",
+    "strengths": "- 뭐하는 사람인지 명확히 알 수 있음\n- 전문성\n- 다영한 브랜드를 볼 수 있움",
+    "weaknesses": "- 재미없음\n- 후킹될 요소가 없음\n- 팔로우까지 갈만한 포인트가 없음",
+    "worry": "- 후킹되는 편집법\n- 컨텐추 기획\n- 인스타그램 디자이닝(피드 올리는 법칙..?)",
+    "upload_barrier": "촬영을 하면서 나조차도 너무 지루해서...",
+    "interviewee": "1. 메이크업이랑 쇼호스트 하는 사람\n2. 계속 볼만한 피드가 없고 비슷한 내용인 것 같아",
+    "role_model_1": "- 에이든 팍\n- 뷰티&일상\n- 같은 업종과 하는 업무가 비슷하고 재밌지만 고급스러워서",
+    "role_model_2": "- 천재희\n- 뷰티\n- 튜토리얼을 너무 맛깔스럽게 잘 제작함 ",
+    "goal": "드라마틱한 팔로우 상승도 좋지만 피드가 깔끔하고 재밌게 나라는 사람의 컬러가 명확하게 보여지는 것과 다양한 촬영과 편집으로 결과물에 대한 완성도를 높이는 것",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "김근택"
+  },
+  {
+    "timestamp": "2026/05/21 2:01:22 오후 GMT+9",
+    "name": "윤도경",
+    "channel_status": "계정 없음",
+    "duration": "0",
+    "upload_freq": "0",
+    "url": "www.instagram.com/yuuun.k__",
+    "one_line": "유령계정",
+    "one_line_reason": "피드 업로드 빈도수가 너무 적어서",
+    "follower": "1241",
+    "best_content": "",
+    "abandoned": "",
+    "strengths": "현재 운영하는 채널이 없어서 파악하기 어려움",
+    "weaknesses": "현재 운영하는 채널이 없어서 파악하기 어려움",
+    "worry": "어떤 컨텐츠로 현재 계정을 활성화 시킬 수 있을까?",
+    "upload_barrier": "완벽한 컨텐츠를 창작해야만 한다는 강박",
+    "interviewee": "뷰티, 리빙, 패션 등 각종 상품 리뷰 / 유행밈 따라하기\n소탈하다 / 꼼꼼하다 / 낙천적이다",
+    "role_model_1": "혜니알 + 뷰티 + 흡입력 있는 편집기술과 30대 여성의 뷰티 고민을 적절히 풀어내는 유연함",
+    "role_model_2": "모리녀 + 각종리뷰 + 소개팅 컨텐츠에 편향 되어 있으나 전체적인 컨셉이 본인의 단점을 과감히 드러내고 여러 카테고리 분야에 대해 솔직하게 리뷰하는 모습이 내가 지향하는 점과 유사함",
+    "goal": "볼 거 없는 무의미한 채널에서 다채로운 나를 보여줄 수 있는 생동감 넘치는 채널로 바뀌길 바랍니다!",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "윤도경"
+  },
+  {
+    "timestamp": "2026/05/21 4:30:13 오후 GMT+9",
+    "name": "주묘경",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "0",
+    "url": "https://www.instagram.com/mysticgrace_myo",
+    "one_line": "음…….",
+    "one_line_reason": "업로드하지않고 있고 브랜딩이 돼있지 않아서입니다! ",
+    "follower": "1726",
+    "best_content": "",
+    "abandoned": "",
+    "strengths": "채널을 새로팔거에요",
+    "weaknesses": "채널을 새로팔거에요\n",
+    "worry": "크리에이터적으로 성장하고 싶습니다",
+    "upload_barrier": "가꿔야 한다는 생각에요 집순이입니다 ㅠ 일하고 집 이런식..으로의 느낌입니더",
+    "interviewee": "지금 있는 계정으로는 방송 하는 사람….인터뷰이가 날 알고있어서 인듯하고\n\n패션계정이 어울릴듯하다고 얘기\n소탈함 기럭지?? 라고 합니다",
+    "role_model_1": "https://www.instagram.com/hae.seoyoung?igsh=MXNpZms0aXg4anFi\n\n패션\n나와 어울리는 스타일링이라고 생각해서 ",
+    "role_model_2": "https://www.instagram.com/cosmojina?igsh=MTk4dWM1aTU3b2c2aA==\n자기계발, 성장, 마인드케어\n내가 궁극적으로 나아가서 이러것도 해주는 언니!\n가 되고싶어서요! ",
+    "goal": "일단 여행과 패션을 잡아서 카테고리를 만들고 싶습니다\n국한되서 만들고 싶지가 않은데 이것 또한 저의 숙제인듯합니다! \n\n1만이 목표 입니다만! 일단 열심히 하는것에 목표를 두겠습니다! ",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "주묘경"
+  },
+  {
+    "timestamp": "2026/05/21 6:06:08 오후 GMT+9",
+    "name": "김광채",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "1년에 3번 (개인용 인스타)",
+    "url": "@shinegwang",
+    "one_line": "크리에이터는 되고 싶지만, 아직 뭘 해야할지 모르는 개인용 인스타",
+    "one_line_reason": "2015년? 16년? 인스타 계정 생성도 비교적 남들보다 빨리 했지만, 크리에이터는 내 일이 아니야 라며 외면하고 눈팅만 한지 10년째 입니다.",
+    "follower": "673명",
+    "best_content": "",
+    "abandoned": "",
+    "strengths": "(채널 없음)",
+    "weaknesses": "(채널 없음)",
+    "worry": "(채널 없음)",
+    "upload_barrier": "귀찮음, 남의 시선 의식",
+    "interviewee": "1. 일상 컨텐츠 or 인터뷰 (일반인치고 주변에 연예계 종사자 혹은 인플루언서들이 많은 편이어서 적극 활용)\n2. 분위기를 편안하게 만들어주는 바이브 & 임기응변, 언어유희 능력",
+    "role_model_1": "아직 모르겠습니다.. (모임 때 까지 찾아오겠습니다)",
+    "role_model_2": "아직 모르겠습니다.. (모임 때 까지 찾아오겠습니다)",
+    "goal": "'시작이 반이다', '조금조금씩 하다보면 된다' 라는 것을 느끼고 싶습니다.",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "김광채"
+  },
+  {
+    "timestamp": "2026/05/21 7:35:54 오후 GMT+9",
+    "name": "장혜영",
+    "channel_status": "계정 없음",
+    "duration": "(기존계정)36",
+    "upload_freq": "(기존계정)2주3회",
+    "url": "(기존계정)https://www.tiktok.com/@fromthezzero",
+    "one_line": "(기존계정)진심없는 협찬 계정",
+    "one_line_reason": "협찬, 광고 제품만 올리고있어서,,,",
+    "follower": "5226",
+    "best_content": "(기본채널)https://www.instagram.com/reel/DBdgFOqsr2v/?igsh=Y216ZWVteG9ubm1i\n신박한 제품 + 많이 유명하지 않았었던 제품이라",
+    "abandoned": "",
+    "strengths": "-모르겠음",
+    "weaknesses": "흥미유발x 진심x 퀄리티도 좋아보이지 않음",
+    "worry": "조회수가 꾸준히 잘 나오면 좋겠습니다.",
+    "upload_barrier": "-콘텐츠 제작에 어렵고 잘해야지하는 강박에 자주 안 올리게 됨",
+    "interviewee": "1.     데일리한 콘텐츠 크리에이터 : 지금 운영하는 계정은  너무 광고은데 평소에는 센스있는 사람이라 그게 더 돋보였으면 함\n\n2.     현실적인데 귀엽고, 열심히 삶!!",
+    "role_model_1": "@kkaoni._ (카오니)\n데일리, 일상 : 깔끔한 편집 및 데일리함이 잘 보여서",
+    "role_model_2": "@pop.beau (팝뷰)\n뷰티 : 깔끔한 정보전달",
+    "goal": "나의 색깔을 찾아 콘텐츠 제작하며, 조회수가 꾸준히 나오는 채널이 되고싶습니다!",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "장혜영"
+  },
+  {
+    "timestamp": "2026/05/21 7:59:31 오후 GMT+9",
+    "name": "박혜진",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "0",
+    "url": "https://www.instagram.com/hyezziniya?igsh=MW11MmM4Zmdmb2V2Yg%3D%3D&utm_source=qr",
+    "one_line": "6시내고향 리포터의 신혼 새댁 일상",
+    "one_line_reason": "제철 식재료로로 밥해먹고 신혼 살림 적응해가는게 요즘 낙입니다",
+    "follower": "3545",
+    "best_content": "",
+    "abandoned": "틱톡에서 시도했던 먹방",
+    "strengths": "제철 식재료의 수확과정을 볼 수 있는 생생함\n누구나 따라할 수 있는 쉬운 요리\n위 두가지를 설명할 수 있는 표현력",
+    "weaknesses": "6시내고향 촬영아이템에 의존하는 콘텐츠\n한가지로 집중되지 않는 콘텐츠\n전문성 없음",
+    "worry": "촬영만 해놓고 콘텐츠로 한번도 만들거나 시도하지 않은것\n신혼새댁일상으로 묶일 수는 있지만 딱 한가지에 집중 되지 않는 것",
+    "upload_barrier": "편집 실력과 시간에 대한 부담감",
+    "interviewee": "1. 사실 딱 보자마자 생각난건 먹방 콘텐츠? 전에 틱톡에서 했던거 되게 잘 어울리고 귀여웠음. 뭐 많이 먹는거 아니어도 그냥 그 컨셉이라든지 그런게? 뭐 리뷰 같은느낌도 갠찮을거 같기도하고. 그때 한정선에서 요거트 신상 먹었을때 그런 찐반응 요런거도 좀 재밌을거같당. 썰풀기나 고민상담도 은근히 잘 맞을것도 같고!\n\n2.다른 사람 입장에서 본다면 감정이랑 표현이 풍부한거 좀 장점이고 매력이야. 나는 혜지니가 뭐 먹고 맛있었을때나 뭐 하고 재밌고 좋았을때 그거 설명해주면 그 기쁨 신남 바이브가 나한테까지 잘 전달되서 좋아. 그리고 싹싹하고 그 어른들한테도 막 친근하게? 잘하는거?그거도 좀 보는 사람도 기분좋게 하는거 가틈\n",
+    "role_model_1": "미쓰삼시세끼/요리/잔잔한 나레이션과 함께 알려주는 레시피가 부담 없이 보기 좋음",
+    "role_model_2": "러브모모/살림요리/ 옆집언니같은 편안함과 같이 수다떠는 것 처럼 소개해주는 요리나 살림 아이템",
+    "goal": "나의 콘텐츠가 컨셉이나 편집 틀이 잡혀서 아이템만 있다면 언제든지 업로드 할 수 있는 계정이 되어있었으면 좋겠어요.\n6주차까지 가능하다면 팔로워 0명에서 시작해 300명까지는 모아보고싶어요",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "박혜진"
+  },
+  {
+    "timestamp": "2026/05/21 8:49:37 오후 GMT+9",
+    "name": "최라진",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "3주1회",
+    "url": "https://www.instagram.com/_rrarra?igsh=MWFoMzB2bGZlcTM0dA%3D%3D&utm_source=qr",
+    "one_line": "뒤죽박죽 어디로 가야하나 길을 잃었다",
+    "one_line_reason": "방송 영상을 올리기도 하고 개인 사진을 올리는 것뿐 크리에이터로써 잡힌게 아무것도 없다",
+    "follower": "2119명",
+    "best_content": "https://www.instagram.com/reel/DGpFDg9PAeN/?igsh=ZjhiZnB4NnEydGtm / 그냥 조회수가 가장 많은 릴스이지만 잘되진 않았다 단지 명량핫도그 먹방이기에 조회수가 좀 나온 것 같다 ",
+    "abandoned": "내 식품 방송을 편집해서 나 잘먹찌~ 라는 컨텐츠를 만들었다 주변 평가가 1.잘먹는다 2.식품 브랜드 홍보 같다 라는 평가",
+    "strengths": "1.쇼호스트로써 방송을 하고 있다는 인식을 준것\n2.푸드 방송 릴스에 표정이 다양한 것\n3…없다..ㅜ",
+    "weaknesses": "1.크리에이터로써 전혀 안보인다\n2.방향이 뒤죽박죽 방송인인지 그냥 개인인지 뚜렷하지 않다\n3.피드의 분위기도 뒤죽박죽이다 (색감이나 컨텐츠의 분위기가 뒤죽박죽이다)",
+    "worry": "내 궁극적 목표는 쇼호스트로써 더 큰 대기업의 방송을 맡고 싶다 그러기위해서는 인스타를 통해 크리에이터가 되어야 한다고 생각한다 내가 어떤 컨텐츠가 어울리고 잘할 수 있는지 내 채널의 방향성을 고민하고 있다 (내 채널이 홍보가 되기보단 나 최라진이 홍보가 되고싶다)",
+    "upload_barrier": "반응이 없을까봐 / 별로인 컨텐츠라고 생각할까봐",
+    "interviewee": "1. 내가 SNS에서 뭘 하면 가장 어울릴 것 같아?\n👉🏻디저트 먹방 \n👉🏻신혼부부의 결혼 준비 썰 (정보)\n\n2. 내 인간 ㅇㅇㅇ으로써 매력은 뭐라고 생각해?\n👉🏻친절함 / 따뜻함 / 호감 / 사람을 편안하게 만들어줌 / 러블리함\n",
+    "role_model_1": "- 채널 : 안은우 \nhttps://www.instagram.com/anunu.krigsh=ejhkNDE0d3VsaXli\n- 카테고리 : 푸드 크리에이터\n- 닮고 싶은 이유 : 내가 가장 돈을 많이 쓰는 부분은 디저트인데 은우님은 단지 디저트를 많이 먹는게 아닌 핫하거나 궁금했던 디저트들을 보여주며 리뷰한다 ",
+    "role_model_2": "- 채널 : 망고맘 김지윤 https://www.instagram.com/yoonypic?igsh=MWlmdTV3Z2g3OG8xMA==\n- 카테고리 : 결혼 정보 크리에이터\n- 닮고 싶은 이유 : 내가 인스타에서 가장 정보를 많이 찾았을때가 바로 결혼준비할때! 신부입장곡 추천, 결혼 준비할때 이것만은 하지말아라 등 결혼 전반의 꿀팁을 영상으로 만드는 크리에이터이다 ",
+    "goal": "크리에이터로써 방향을 확실하게 잡고 싶고 대기업으로부터 이 사람에게 브랜드를 맡겨보고싶다는 호감(?)을 줬으면 좋겠다 쇼호스트로써도 있지만 크리에어터로써 채널의 방향을 잡았으면 좋겠다 \n\n푸드 크리에이터쪽이라면 한정선 광고를 받는게 목표\n쇼호스트로써 여수언니의 봄날엔 디저트 방송을 맡는게 목표",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "최라진"
+  },
+  {
+    "timestamp": "2026/05/21 9:50:32 오후 GMT+9",
+    "name": "이수연",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "2~3년(개인)",
+    "upload_freq": "4주 1회",
+    "url": "www.instagram.com/soo_ketchbooks",
+    "one_line": "프리랜서로 살아남기",
+    "one_line_reason": "프리랜서로의 업무 아카이빙 및 생활 공유",
+    "follower": "1541",
+    "best_content": "https://www.instagram.com/reel/C12bKTRyAeZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==\n1. '급박한 섭외' 후킹 요소\n2. 섭외 이후의 과정을 흡입력 있게 표현\n3. 진행자로서의 역량 공유",
+    "abandoned": "정보 전달성 콘텐츠",
+    "strengths": "1. 지인 기반의 계정이라 인터랙션이 나쁘지 않은 편\n2. 열심히 사는 모습 >> 동기 부여\n3. 쩝.... 유쾌하다... ^^........",
+    "weaknesses": "1. 꾸준한 콘텐츠가 없음\n2. 한 눈에 어떤 계정인지 들어오지 않음\n3. 시청 지속시간이 떨어지는 편",
+    "worry": "1. 새로운 팔로워 유입이 없음\n2. 꾸준한 콘텐츠 업로드 X",
+    "upload_barrier": "1. 게~을~러~서~ (대충은 못 올리겠는데 그렇다고 성실하지도 않음)",
+    "interviewee": "[채널 운영 중]\n[친구1]\n1. 쇼호스트구나\n2. (단순) 개인 계정, 개인 일기장 같다. 탐색탭에서 이 사람의 릴스를 보면 콘텐츠 하나 하나를 재미있게 볼 수 있지만 굳이 팔로우하진 않을 것 같음, 이 사람을 팔로우했을 때 얻을 수 있는게 한 줄로 정의되어야 하는데 현재는 없는 것 같음 (진짜 너무 웃기다, 쇼호스트로서의 제품 평가 등), 그냥 개인 일기장같은 느낌\n\n[친구2]\n1. 여기저기 등장하는 MC\n2. 현재 하는 일을 보여줄 수 있는 메인 콘텐츠 1개 필요할 것 같음 (사진/영상 등)",
+    "role_model_1": "노유진 쇼호스트 / 패션 / 업무의 특장점을 살리는 계정 운영",
+    "role_model_2": "팔레트 김혜인 / 커리어 / 커리어 상담 중심의 계정 운영",
+    "goal": "전문성이 있는 계정 / 팔로우 할 이유가 있는 계정 / 미션 무조건 달성하기 ",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "이수연 아아아악!!!!"
+  },
+  {
+    "timestamp": "2026/05/21 10:07:21 오후 GMT+9",
+    "name": "장형석",
+    "channel_status": "개인용만 있고 콘텐츠 채널 없음",
+    "duration": "0",
+    "upload_freq": "1주2~3회",
+    "url": "sssuck__e",
+    "one_line": "육아하는젊은아빠",
+    "one_line_reason": "요즘 인스타에 육아영상을 더 많이 올리는거같아서,,,",
+    "follower": "1860명",
+    "best_content": "배경화면 첼린지-조회수가 1000만이 넘었는데 이유가 사람들이 따라하고싶게 만드는 포인트가 있어서!",
+    "abandoned": "",
+    "strengths": "재미, 공감대형성, 빠른 소통",
+    "weaknesses": "정보, 일관성 없는 주제, 재방문 저조",
+    "worry": "계정의 정체성",
+    "upload_barrier": "삶이 힘들어서",
+    "interviewee": "1.육아 참여도가 높은 젊은 아빠\n2.일관성과 정보",
+    "role_model_1": "lovtaeha - 육아 - 보기좋고 내가 하고싶고 재밌어서",
+    "role_model_2": "r_yuhyeju - 일상+육아 - 내가 하고싶은것과 재미있어서",
+    "goal": "팔로워 증가와 자리잡힌 계정",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "장형석"
+  },
+  {
+    "timestamp": "2026/05/21 10:18:30 오후 GMT+9",
+    "name": "신넬로피",
+    "channel_status": "콘텐츠 용으로 따로 운영하는 채널 있음",
+    "duration": "1",
+    "upload_freq": "1주 1회",
+    "url": "https://www.instagram.com/baby_shinellope?igsh=MWFsbGxkejZuaHZocA%3D%3D&utm_source=qr",
+    "one_line": "자꾸 댓글달고 싶어지는 영상..?",
+    "one_line_reason": "임출육 시기에 공감을 유도하는 콘텐츠를 주로 올리고 있어요",
+    "follower": "447",
+    "best_content": "https://www.instagram.com/reel/DXsi7dxk9Im/?igsh=MWh2amhjb3l3OWZodg==\n\n1. 짧은 길이의 영상\n2. 임신준비기에 공감갈만한 상황\n3. 임출육은 꼭 한마디씩 거들고 싶어하는 사람들의 특성(?)",
+    "abandoned": "정보공유글이나 더빙컨텐츠도 생각중이에요",
+    "strengths": "짧은영상. 공감포인트. 정보강함",
+    "weaknesses": "적은 팔로워수. 콘텐츠 확장의 한계. 영상길이의 한계",
+    "worry": "1) 워낙 육아콘텐츠는 많다보니, 어떤식으로 개성있는 콘텐츠를 만들어야할지 차별화에 대한 고민\n2) 팔로워 확대",
+    "upload_barrier": "영상 조작이나 편집이 서툴고 아직 카메라 촬영하는게 민망해서 다 찍질 못하고 있어요^^....",
+    "interviewee": "1. 애 키우는 예쁘장한 아줌마\n2. 콘텐츠가 중구난방임",
+    "role_model_1": "https://www.instagram.com/_hyomom?igsh=MWw1bGsxeTVrZGZwMw== \n\n육아 / 깔끔한 계정분위기가 맘에 들어요",
+    "role_model_2": "https://www.instagram.com/heidelflower_haeun?igsh=aTN2bHI2eHlrbnd3\n\n육아 / 제품개발까지 이어나간점이 롤모델...",
+    "goal": "팔로워 2천명 달성!!!!! 자막, 이미지 등 나만의 컨셉 찾기",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 완성도보다 업로드를 우선한다;나는 잘하려 하기 전에 그냥 한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "유유리"
+  },
+  {
+    "timestamp": "2026/05/21 11:29:38 오후 GMT+9",
+    "name": "박채완",
+    "channel_status": "콘텐츠 용으로 따로 운영하는 채널 있음",
+    "duration": "음,🤨? 2년?",
+    "upload_freq": "1주2회",
+    "url": "https://www.instagram.com/sh_wanmamia",
+    "one_line": "속시원하게 사는 엄마 채완",
+    "one_line_reason": "채널명이 완마미아. 내맘이야. 이뜻임",
+    "follower": "1만3천7백명",
+    "best_content": "https://www.instagram.com/reel/DRt9B-pEt68/?igsh=ZmFtcDBxOG9rMDhl\n\n조회수1,338,055\n팔로우3134(단일컨텐츠 최다)\n좋아요5.4만\n공유4만\n저장6.5찬",
+    "abandoned": "자동차 운전중 영상에 악플이 몇몇 달려서 고민중 입니다. 자연스럽게 찍기좋은데, ㅜ 위험한건 맞으니까여",
+    "strengths": "공감,워킹맘자극,피로하지않을정도의광고",
+    "weaknesses": "지속성,뚜렷한방향성,세련미",
+    "worry": "메가인플루언서로 가는길 ",
+    "upload_barrier": "현업에 허덕이기 때문",
+    "interviewee": "1.\t생활의 공감을 나누는사람\n2.\t수익화를위한 (광고등) 타겟팅 설정\n",
+    "role_model_1": "비니,임정빈 공감 재미요소",
+    "role_model_2": "랄랄,메가크리에이터,부캐생성",
+    "goal": "2만팔로우.목표",
+    "pledge": "나는 6주 동안 매주 숏폼 2개와 피드 1개 업로드 미션을 수행한다;나는 2회 이상 업로드 규칙을 지키지 못할 시 중도 하차 페널티를 받아들인다;나는 구역원들의 피드백을 정성껏 써주고 받아들인다",
+    "signature": "박채완"
+  }
+];
+
+/* ── helpers ───────────────────────────────────────────────── */
+const $ = (s, el=document) => el.querySelector(s);
+const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+
+function escapeHTML(s){
+  return String(s ?? "")
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+
+function autolink(text){
+  if(!text) return "";
+  const escaped = escapeHTML(text);
+  const urlRe = /(https?:\/\/[^\s<>"']+[^\s<>"'.,;:!?)\]])/g;
+  return escaped.replace(urlRe, url =>
+    `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+  );
+}
+
+function nl2br(html){ return html.replace(/\n/g, "<br>"); }
+
+function parseFollower(s){
+  if(s == null) return null;
+  let t = String(s).trim();
+  if(!t) return null;
+  t = t.replace(/[,\s]/g,"").replace(/(명|팔로워|구독자|followers?|subs?)/gi, "");
+  if(!t) return null;
+
+  if(/[만천백]/.test(t)){
+    let total = 0, ok = false;
+    const mMan = t.match(/([0-9]+(?:\.[0-9]+)?)만/);
+    if(mMan){ total += parseFloat(mMan[1]) * 10000; ok = true; }
+    const mCheon = t.replace(/[0-9.]+만/, "").match(/([0-9]+(?:\.[0-9]+)?)천/);
+    if(mCheon){ total += parseFloat(mCheon[1]) * 1000; ok = true; }
+    const mBaek = t.replace(/[0-9.]+만/, "").replace(/[0-9.]+천/, "").match(/([0-9]+(?:\.[0-9]+)?)백/);
+    if(mBaek){ total += parseFloat(mBaek[1]) * 100; ok = true; }
+    if(ok) return Math.round(total);
+  }
+
+  const simple = t.match(/^([0-9]+(?:\.[0-9]+)?)(만|천|k|K|M|m)?$/);
+  if(simple){
+    const n = parseFloat(simple[1]);
+    const u = simple[2];
+    if(!u) return Math.round(n);
+    if(u === "만")            return Math.round(n * 10000);
+    if(u === "천")            return Math.round(n * 1000);
+    if(u === "k" || u === "K") return Math.round(n * 1000);
+    if(u === "M" || u === "m") return Math.round(n * 1000000);
+  }
+
+  const digits = t.replace(/[^\d]/g,"");
+  return digits ? parseInt(digits,10) : null;
+}
+
+function formatFollower(n){
+  if(n == null) return "—";
+  if(n >= 10000){
+    const v = n / 10000;
+    if(v >= 100) return v.toFixed(0) + "만";
+    return v.toFixed(v >= 10 ? 1 : 2).replace(/\.?0+$/,"") + "만";
+  }
+  if(n >= 1000) return n.toLocaleString();
+  return String(n);
+}
+
+function parseTs(s){
+  if(!s) return null;
+  const m = s.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})\s+(\d{1,2}):(\d{2}):(\d{2})\s*(오전|오후)?/);
+  if(!m) return null;
+  let [_,Y,Mo,D,H,Mi,Se,ap] = m;
+  let h = parseInt(H,10);
+  if(ap === "오후" && h < 12) h += 12;
+  if(ap === "오전" && h === 12) h = 0;
+  const utc = Date.UTC(+Y, +Mo-1, +D, h, +Mi, +Se) - 9*3600*1000;
+  return new Date(utc);
+}
+
+function formatTsShort(s){
+  const d = parseTs(s);
+  if(!d) return s || "";
+  const kst = new Date(d.getTime() + 9*3600*1000);
+  const mm = String(kst.getUTCMonth()+1).padStart(2,"0");
+  const dd = String(kst.getUTCDate()).padStart(2,"0");
+  const hh = String(kst.getUTCHours()).padStart(2,"0");
+  const mi = String(kst.getUTCMinutes()).padStart(2,"0");
+  return `${mm}.${dd} ${hh}:${mi}`;
+}
+
+function channelClass(status){
+  if(status === "콘텐츠 용으로 따로 운영하는 채널 있음") return "s-content";
+  if(status === "개인용만 있고 콘텐츠 채널 없음")     return "s-personal";
+  if(status === "계정 없음")                          return "s-none";
+  return "s-none";
+}
+function channelShort(status){
+  if(status === "콘텐츠 용으로 따로 운영하는 채널 있음") return "콘텐츠 채널";
+  if(status === "개인용만 있고 콘텐츠 채널 없음")     return "개인용만";
+  if(status === "계정 없음")                          return "계정 없음";
+  return status || "—";
+}
+
+/* ── state ─────────────────────────────────────────────────── */
+let STATE = {
+  data: [],
+  filter: "all",
+  sort: "submit_asc",
+  query: "",
+};
+
+function deriveAll(){
+  STATE.data = DATA.map((d,i) => ({
+    ...d,
+    _idx: i,
+    _follower_n: parseFollower(d.follower),
+    _ts: parseTs(d.timestamp),
+    _searchblob: [
+      d.name, d.one_line, d.one_line_reason, d.best_content, d.abandoned,
+      d.strengths, d.weaknesses, d.worry, d.upload_barrier, d.interviewee,
+      d.role_model_1, d.role_model_2, d.goal, d.signature,
+      d.channel_status, d.duration, d.upload_freq, d.url
+    ].join(" \n ").toLowerCase()
+  }));
+}
+
+function getView(){
+  let arr = STATE.data.slice();
+  if(STATE.filter === "content")   arr = arr.filter(d => d.channel_status === "콘텐츠 용으로 따로 운영하는 채널 있음");
+  if(STATE.filter === "personal")  arr = arr.filter(d => d.channel_status === "개인용만 있고 콘텐츠 채널 없음");
+  if(STATE.filter === "none")      arr = arr.filter(d => d.channel_status === "계정 없음");
+
+  const q = STATE.query.trim().toLowerCase();
+  if(q){ arr = arr.filter(d => d._searchblob.includes(q)); }
+
+  const sort = STATE.sort;
+  arr.sort((a,b) => {
+    if(sort === "submit_asc")     return (a._ts?.getTime() ?? 0) - (b._ts?.getTime() ?? 0);
+    if(sort === "submit_desc")    return (b._ts?.getTime() ?? 0) - (a._ts?.getTime() ?? 0);
+    if(sort === "name_asc")       return (a.name||"").localeCompare(b.name||"", "ko");
+    if(sort === "follower_desc")  return (b._follower_n ?? -1) - (a._follower_n ?? -1);
+    if(sort === "follower_asc")   return (a._follower_n ?? Infinity) - (b._follower_n ?? Infinity);
+    return 0;
+  });
+  return arr;
+}
+
+/* ── render ────────────────────────────────────────────────── */
+function renderStats(){
+  const d = STATE.data;
+  $("#s-total").textContent    = d.length;
+  $("#s-content").textContent  = d.filter(x => x.channel_status === "콘텐츠 용으로 따로 운영하는 채널 있음").length;
+  $("#s-personal").textContent = d.filter(x => x.channel_status === "개인용만 있고 콘텐츠 채널 없음").length;
+  $("#s-none").textContent     = d.filter(x => x.channel_status === "계정 없음").length;
+  const sumF = d.reduce((acc,x) => acc + (x._follower_n || 0), 0);
+  $("#s-foll").textContent     = sumF ? sumF.toLocaleString() : "—";
+  $("#m-count").textContent    = d.length;
+  const latest = d.map(x=>x._ts).filter(Boolean).sort((a,b)=>b-a)[0];
+  if(latest){
+    const kst = new Date(latest.getTime() + 9*3600*1000);
+    const y  = kst.getUTCFullYear();
+    const mo = String(kst.getUTCMonth()+1).padStart(2,"0");
+    const da = String(kst.getUTCDate()).padStart(2,"0");
+    $("#m-updated").textContent = `${y}.${mo}.${da}`;
+  } else {
+    $("#m-updated").textContent = "—";
+  }
+}
+
+function cardHTML(d){
+  const fn = d._follower_n;
+  const fdisp = formatFollower(fn);
+  const cls = channelClass(d.channel_status);
+  const num = String(d._idx + 1).padStart(2, "0");
+  const oneEmpty = !d.one_line || !d.one_line.trim();
+  const duration = (d.duration && d.duration !== "0") ? d.duration : null;
+  const freq = (d.upload_freq && d.upload_freq !== "0") ? d.upload_freq : null;
+
+  return `
+    <button class="card" data-id="${d._idx}" aria-label="${escapeHTML(d.name)} 자세히 보기">
+      <div class="card-top">
+        <span class="card-num">No. ${num}</span>
+        <span class="badge ${cls}"><span class="dot"></span>${escapeHTML(channelShort(d.channel_status))}</span>
+      </div>
+      <h3 class="card-name">${escapeHTML(d.name || "—")}</h3>
+      <p class="card-one ${oneEmpty ? "empty" : ""}">${oneEmpty ? "한 줄 소개 미작성" : escapeHTML(d.one_line)}</p>
+      <div class="card-foot">
+        <div class="meta-foll">
+          <span class="num">${escapeHTML(fdisp)}</span>
+          <span class="lbl">팔로워</span>
+        </div>
+        <div class="meta-mini">
+          ${duration ? `<div><strong>${escapeHTML(duration)}</strong></div>` : ``}
+          ${freq ? `<div>${escapeHTML(freq)}</div>` : ``}
+          ${!duration && !freq ? `<div>—</div>` : ``}
+        </div>
+      </div>
+    </button>
+  `;
+}
+
+function renderGrid(){
+  const view = getView();
+  const grid = $("#grid");
+  $("#r-count").textContent = view.length;
+  if(view.length === 0){
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </div>
+        <div>조건에 맞는 결과가 없어요</div>
+      </div>`;
+    return;
+  }
+  grid.innerHTML = view.map(cardHTML).join("");
+  $$(".card", grid).forEach(c => {
+    c.addEventListener("click", () => openSheet(parseInt(c.dataset.id, 10)));
+  });
+}
+
+/* ── sheet (detail) ────────────────────────────────────────── */
+function kv(label, val, opts={}){
+  const empty = !val || !String(val).trim();
+  const content = opts.html
+    ? (empty ? "<span class='empty'>미작성</span>" : opts.html)
+    : `<span class="${empty ? "empty" : ""}">${empty ? "미작성" : escapeHTML(val)}</span>`;
+  return `<div class="kv"><div class="kv-k">${escapeHTML(label)}</div><div class="kv-v">${content}</div></div>`;
+}
+
+function panel(label, val, accentClass = ""){
+  const empty = !val || !String(val).trim();
+  return `
+    <div class="panel">
+      <div class="panel-k ${accentClass}">${escapeHTML(label)}</div>
+      <div class="panel-v ${empty ? "empty" : ""}">${empty ? "미작성" : nl2br(autolink(val))}</div>
+    </div>
+  `;
+}
+
+function pledgeHTML(pledge, signature){
+  const items = (pledge || "").split(";").map(s=>s.trim()).filter(Boolean);
+  const list = items.length
+    ? items.map(it => `<li class="pledge-item"><span class="pledge-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>${escapeHTML(it)}</span></li>`).join("")
+    : `<li class="pledge-item" style="color: var(--text-3)">서약 내용이 비어 있어요.</li>`;
+  const signEmpty = !signature || !signature.trim();
+  return `
+    <div class="pledge">
+      <ul class="pledge-list">${list}</ul>
+      <div class="pledge-sign">
+        <span class="pledge-sign-l">위 내용에 서약</span>
+        <span class="pledge-sign-r ${signEmpty ? "empty" : ""}">${signEmpty ? "서명 없음" : escapeHTML(signature)}</span>
+      </div>
+    </div>
+  `;
+}
+
+function sheetHTML(d){
+  const num = String(d._idx + 1).padStart(2, "0");
+  const oneEmpty = !d.one_line || !d.one_line.trim();
+  const reasonEmpty = !d.one_line_reason || !d.one_line_reason.trim();
+  const fdisp = formatFollower(d._follower_n);
+  const cls = channelClass(d.channel_status);
+
+  return `
+    <div class="sheet-inner" role="document">
+      <div class="sheet-head">
+        <button class="sheet-close" id="sheet-close" aria-label="닫기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="sheet-meta">
+          <span>No. ${num}</span>
+          <span class="sep">·</span>
+          <span>제출 ${escapeHTML(formatTsShort(d.timestamp))}</span>
+          <span class="sep">·</span>
+          <span class="badge ${cls}"><span class="dot"></span>${escapeHTML(channelShort(d.channel_status))}</span>
+        </div>
+        <h2 class="sheet-name" id="sheet-name">${escapeHTML(d.name || "—")}</h2>
+        <p class="sheet-one ${oneEmpty ? "empty" : ""}">${oneEmpty ? "한 줄 소개 미작성" : escapeHTML(d.one_line)}</p>
+        ${reasonEmpty ? "" : `<p class="sheet-one-reason"><em>그렇게 적은 이유</em> — ${escapeHTML(d.one_line_reason)}</p>`}
+      </div>
+
+      <div class="sheet-body">
+
+        <section class="sec">
+          <h3 class="sec-title">채널 개요</h3>
+          <div class="kv-grid">
+            ${kv("운영 현황", channelShort(d.channel_status))}
+            ${kv("운영 기간", (d.duration && d.duration !== "0") ? d.duration : "")}
+            ${kv("평균 업로드 빈도", (d.upload_freq && d.upload_freq !== "0") ? d.upload_freq : "")}
+            <div class="kv">
+              <div class="kv-k">팔로워 / 구독자</div>
+              <div class="kv-v"><span class="big">${escapeHTML(fdisp)}</span></div>
+            </div>
+            <div class="kv" style="grid-column: 1 / -1">
+              <div class="kv-k">메인 SNS · Linkbio</div>
+              <div class="kv-v">${d.url ? autolink(d.url) : `<span class="empty">미작성</span>`}</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h3 class="sec-title">콘텐츠 이력</h3>
+          <div class="twocol">
+            ${panel("역대 가장 잘 된 콘텐츠", d.best_content)}
+            ${panel("시도했다가 멈춘 분야", d.abandoned)}
+          </div>
+        </section>
+
+        <section class="sec">
+          <h3 class="sec-title">자가 진단 · 강점과 약점</h3>
+          <div class="twocol">
+            ${panel("강점 3가지", d.strengths)}
+            ${panel("약점 3가지", d.weaknesses)}
+          </div>
+          <div class="twocol">
+            ${panel("채널에 대한 가장 큰 고민", d.worry)}
+            ${panel("자주 올리지 않게 되는 이유", d.upload_barrier)}
+          </div>
+        </section>
+
+        <section class="sec">
+          <h3 class="sec-title">외부 시선 · 인터뷰이가 본 나</h3>
+          ${panel("인터뷰이 답변", d.interviewee)}
+        </section>
+
+        <section class="sec">
+          <h3 class="sec-title">닮고 싶은 크리에이터</h3>
+          <div class="role-block">
+            <div class="role">
+              <span class="role-num">01</span>
+              <div class="role-body ${(!d.role_model_1 || !d.role_model_1.trim()) ? "empty" : ""}">${(!d.role_model_1 || !d.role_model_1.trim()) ? "미작성" : nl2br(autolink(d.role_model_1))}</div>
+            </div>
+            <div class="role">
+              <span class="role-num">02</span>
+              <div class="role-body ${(!d.role_model_2 || !d.role_model_2.trim()) ? "empty" : ""}">${(!d.role_model_2 || !d.role_model_2.trim()) ? "미작성" : nl2br(autolink(d.role_model_2))}</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h3 class="sec-title">6주 후의 목표</h3>
+          ${(d.goal && d.goal.trim())
+            ? `<div class="goal-box">${nl2br(autolink(d.goal))}</div>`
+            : `<div class="goal-box empty">미작성</div>`}
+        </section>
+
+        <section class="sec">
+          <h3 class="sec-title">6주 서약</h3>
+          ${pledgeHTML(d.pledge, d.signature)}
+        </section>
+
+      </div>
+    </div>
+  `;
+}
+
+function openSheet(idx){
+  const d = STATE.data[idx];
+  if(!d) return;
+  $("#sheet").innerHTML = sheetHTML(d);
+  // double rAF so the transform/opacity animates
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    $("#sheet").classList.add("open");
+    $("#scrim").classList.add("open");
+  }));
+  document.body.classList.add("modal-open");
+  $("#sheet-close").addEventListener("click", closeSheet);
+  $("#sheet").scrollTop = 0;
+}
+function closeSheet(){
+  $("#sheet").classList.remove("open");
+  $("#scrim").classList.remove("open");
+  document.body.classList.remove("modal-open");
+  setTimeout(() => { $("#sheet").innerHTML = ""; }, 280);
+}
+
+/* ── events ────────────────────────────────────────────────── */
+function bindEvents(){
+  $("#search").addEventListener("input", e => {
+    STATE.query = e.target.value;
+    renderGrid();
+  });
+  $$(".seg button").forEach(p => {
+    p.addEventListener("click", () => {
+      $$(".seg button").forEach(x => x.setAttribute("aria-pressed", "false"));
+      p.setAttribute("aria-pressed", "true");
+      STATE.filter = p.dataset.filter;
+      renderGrid();
+    });
+  });
+  $("#sort").addEventListener("change", e => {
+    STATE.sort = e.target.value;
+    renderGrid();
+  });
+  $("#scrim").addEventListener("click", closeSheet);
+
+  document.addEventListener("keydown", e => {
+    if(e.key === "Escape" && $("#sheet").classList.contains("open")){
+      closeSheet();
+    } else if(e.key === "/" && document.activeElement !== $("#search")){
+      if(!$("#sheet").classList.contains("open")){
+        e.preventDefault();
+        $("#search").focus();
+      }
+    }
+  });
+
+  $("#reload").addEventListener("click", () => $("#csvinput").click());
+  $("#csvinput").addEventListener("change", handleCSVUpload);
+}
+
+/* ── CSV upload ────────────────────────────────────────────── */
+function parseCSV(text){
+  const rows = [];
+  let row = [], cell = "", i = 0, q = false;
+  const n = text.length;
+  while(i < n){
+    const c = text[i];
+    if(q){
+      if(c === '"'){
+        if(text[i+1] === '"'){ cell += '"'; i += 2; continue; }
+        q = false; i++; continue;
+      }
+      cell += c; i++; continue;
+    } else {
+      if(c === '"'){ q = true; i++; continue; }
+      if(c === ','){ row.push(cell); cell = ""; i++; continue; }
+      if(c === '\r'){ i++; continue; }
+      if(c === '\n'){ row.push(cell); rows.push(row); row = []; cell = ""; i++; continue; }
+      cell += c; i++;
+    }
+  }
+  if(cell !== "" || row.length){ row.push(cell); rows.push(row); }
+  return rows;
+}
+
+function handleCSVUpload(e){
+  const file = e.target.files?.[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const text = String(ev.target.result || "");
+      const rows = parseCSV(text);
+      if(rows.length < 2) throw new Error("CSV에 데이터 행이 없어요.");
+      const header = rows[0];
+      const keys = ["timestamp","name","channel_status","duration","upload_freq","url","one_line","one_line_reason","follower","best_content","abandoned","strengths","weaknesses","worry","upload_barrier","interviewee","role_model_1","role_model_2","goal","pledge","signature"];
+
+      if(header[0]?.trim() !== "타임스탬프" || header[1]?.trim() !== "이름"){
+        if(!confirm("CSV 헤더가 예상과 달라요. 그래도 첫 열을 타임스탬프, 둘째 열을 이름으로 가정하고 진행할까요?")){
+          e.target.value = "";
+          return;
+        }
+      }
+      const newData = rows.slice(1).filter(r => r.some(c => (c||"").trim() !== "")).map(r => {
+        const o = {};
+        for(let k = 0; k < keys.length; k++) o[keys[k]] = (r[k] ?? "").trim();
+        return o;
+      });
+      DATA.length = 0;
+      newData.forEach(d => DATA.push(d));
+      deriveAll();
+      renderStats();
+      renderGrid();
+      alert(`업데이트 완료 — ${newData.length}명의 자가 진단서가 반영되었어요.`);
+    } catch(err){
+      alert("CSV를 읽는 중 문제가 발생했어요:\n" + err.message);
+    } finally {
+      e.target.value = "";
+    }
+  };
+  reader.readAsText(file, "utf-8");
+}
+
+/* ── boot ──────────────────────────────────────────────────── */
+deriveAll();
+renderStats();
+renderGrid();
+bindEvents();
+</script>
+
+</body>
+</html>
